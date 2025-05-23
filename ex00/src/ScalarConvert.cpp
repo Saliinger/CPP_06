@@ -19,11 +19,11 @@ ScalarConvert::~ScalarConvert() {}
 static int getType(const std::string &s) {
   if (s.length() == 1 && !std::isdigit(s[0]))
     return 0;
-  else if (std::strtol(s, 10)) { // int
+  else if (std::stoi(s)) { // int
     return 1;
-  } else if (1 == 0) { // float
+  } else if (std::stof(s)) { // float
     return 2;
-  } else if (1 == 0) { // double
+  } else if (std::stod(s)) { // double
     return 3;
   }
   return -1;

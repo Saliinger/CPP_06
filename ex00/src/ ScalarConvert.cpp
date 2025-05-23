@@ -10,45 +10,41 @@ ScalarConvert &ScalarConvert::operator=(const ScalarConvert &src) {}
 
 ScalarConvert::~ScalarConvert() {}
 
-// other constructor
-ScalarConvert::ScalarConvert(const std::string &s) {}
-
 // function
+static int getType(const std::string &s) {
+  if (s.length() == 1)
+    return 0;
+  else if (1 == 0) {
+    return 1;
+  } else if (1 == 0) {
+    return 2;
+  } else if (1 == 0) {
+    return 3;
+  }
+  return -1;
+}
 
-static void charIn(ScalarConvert &toFill) {}
+static void charIn(const std::string &s) {}
 
-static void intIn(ScalarConvert &toFill) {}
+static void intIn(const std::string &s) {}
 
-static void floatIn(ScalarConvert &toFill) {}
+static void floatIn(const std::string &s) {}
 
-static void doubleIn(ScalarConvert &toFill) {}
+static void doubleIn(const std::string &s) {}
 
 void ScalarConvert::convert(const std::string &s) {
-  ScalarConvert test;
+  int type = getType(s);
 
-  test._type;
-  // 1 - Check type
-
-  // 2 - convert string to defined type
-
-  // 3 - Create the res
-
-  void (*fill[4])(ScalarConvert &) = {
+  void (*fill[4])(const std::string &) = {
       charIn,
       intIn,
       floatIn,
       doubleIn,
   };
 
-  // std::string type[] = { "CHAR", "INT", "FLOAT", "DOUBLE" };
-
-  for (int i = 0; i < 4; i++) {
-    if (test._type == i) {
-      &test->*fill[i](s);
-      return;
-    }
+  if (type < 4 && type >= 0) {
+    fill[type](s);
+    return;
   }
+  std::cout << "Error: pizza!" << std::endl;
 }
-
-// by converting the input string as the type it represent i can use a
-// construtor with multiple type to fill the data

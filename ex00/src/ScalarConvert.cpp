@@ -15,19 +15,53 @@ ScalarConvert::~ScalarConvert() {}
 
 // helper function
 
+static bool isChar(const std::string &s) {
+  if (s.length() == 1 && !std::isdigit(s[0])) return true;
+  return false;
+}
+
+static bool isInt(const std::string &s) {
+  char *end;
+  int i;
+
+  i = std::strtol(s.c_str(), &end, 10);
+  if (*end == '\0') {
+    if (i <= std::numeric_limits<int>::max() &&
+        i >= std::numeric_limits<int>::min()) {
+      return true;
+    }
+  }
+  return false;
+}
+
+static bool isFloat(const std::string &s) {
+  char *end;
+
+  std::strtof(s.c_str(), &end);
+  return *end == 'f';
+}
+
+static bool isDouble(const std::string &s) {
+  char *end;
+
+  std::strtod(s.c_str(), &end);
+  return *end == '\0';
+}
+
 // get the type of the scalar variable
 static int getType(const std::string &s) {
-  if (s.length() == 1 && !std::isdigit(s[0]))
+  if (isChar(s))
     return 0;
-  else if (std::stoi(s)) { // int
+  else if (isInt(s)) {  // int
     return 1;
-  } else if (std::stof(s)) { // float
+  } else if (isFloat(s)) {  // float
     return 2;
-  } else if (std::stod(s)) { // double
+  } else if (isDouble(s)) {  // double
     return 3;
   }
   return -1;
 }
+// todo check all type this is trash
 
 // converters
 static void charIn(const std::string &s) {
@@ -58,7 +92,7 @@ static void charIn(const std::string &s) {
   }
   {
     if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<int>::min())
+        d >= std::numeric_limits<double>::min())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -95,7 +129,7 @@ static void intIn(const std::string &s) {
   }
   {
     if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<int>::min())
+        d >= std::numeric_limits<double>::min())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -132,7 +166,7 @@ static void floatIn(const std::string &s) {
   }
   {
     if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<int>::min())
+        d >= std::numeric_limits<double>::min())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -169,7 +203,7 @@ static void doubleIn(const std::string &s) {
   }
   {
     if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<int>::min())
+        d >= std::numeric_limits<double>::min())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -215,5 +249,5 @@ void ScalarConvert::convert(const std::string &s) {
     fill[type](s);
     return;
   }
-  std::cout << "Error: pizza!" << std::endl;
+  std::cout << "Error: pizza! " << type << std::endl;
 }

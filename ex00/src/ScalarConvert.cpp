@@ -58,7 +58,6 @@ static int getType(const std::string &s) {
   }
   return -1;  // Invalid type
 }
-// todo check all type this is trash
 
 // converters
 static void charIn(const std::string &s) {
@@ -70,6 +69,8 @@ static void charIn(const std::string &s) {
   {
     if (std::isprint(c))
       std::cout << "char: " << c << std::endl;
+    else if (i >= 0 && i < 128)
+      std::cout << "char: not printable" << std::endl;
     else
       std::cout << "char: impossible" << std::endl;
   }
@@ -107,6 +108,8 @@ static void intIn(const std::string &s) {
   {
     if (std::isprint(c))
       std::cout << "char: " << c << std::endl;
+    else if (i >= 0 && i < 128)
+      std::cout << "char: not printable" << std::endl;
     else
       std::cout << "char: impossible" << std::endl;
   }
@@ -144,6 +147,8 @@ static void floatIn(const std::string &s) {
   {
     if (std::isprint(c))
       std::cout << "char: " << c << std::endl;
+    else if (i >= 0 && i < 128)
+      std::cout << "char: not printable" << std::endl;
     else
       std::cout << "char: impossible" << std::endl;
   }
@@ -181,6 +186,8 @@ static void doubleIn(const std::string &s) {
   {
     if (std::isprint(c))
       std::cout << "char: " << c << std::endl;
+    else if (i >= 0 && i < 128)
+      std::cout << "char: not printable" << std::endl;
     else
       std::cout << "char: impossible" << std::endl;
   }

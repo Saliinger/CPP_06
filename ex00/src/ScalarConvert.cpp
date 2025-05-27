@@ -16,20 +16,17 @@ ScalarConvert::~ScalarConvert() {}
 // helper function
 
 static bool isChar(const std::string &s) {
-  if (s.length() == 1 && !std::isdigit(s[0])) return true;
-  return false;
+  return s.length() == 1 && !std::isdigit(s[0]);
 }
 
 static bool isInt(const std::string &s) {
   char *end;
-  int i;
+  long l;
 
-  i = std::strtol(s.c_str(), &end, 10);
-  if (*end == '\0') {
-    if (i <= std::numeric_limits<int>::max() &&
-        i >= std::numeric_limits<int>::min()) {
-      return true;
-    }
+  l = std::strtol(s.c_str(), &end, 10);
+  if (*end == '\0' && l <= std::numeric_limits<int>::max() &&
+      l >= std::numeric_limits<int>::min()) {
+    return true;
   }
   return false;
 }
@@ -50,16 +47,16 @@ static bool isDouble(const std::string &s) {
 
 // get the type of the scalar variable
 static int getType(const std::string &s) {
-  if (isChar(s))
-    return 0;
-  else if (isFloat(s)) {  // float
-    return 2;
-  } else if (isDouble(s)) {  // double
-    return 3;
-  } else if (isInt(s)) {  // int
-    return 1;
+  if (isChar(s)) {
+    return 0;  // char
+  } else if (isInt(s)) {
+    return 1;  // int
+  } else if (isFloat(s)) {
+    return 2;  // float
+  } else if (isDouble(s)) {
+    return 3;  // double
   }
-  return -1;
+  return -1;  // Invalid type
 }
 // todo check all type this is trash
 
@@ -78,21 +75,21 @@ static void charIn(const std::string &s) {
   }
   {
     if (i <= std::numeric_limits<int>::max() &&
-        i >= std::numeric_limits<int>::min())
+        i >= std::numeric_limits<int>::lowest())
       std::cout << "int: " << std::to_string(i) << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
     if (f <= std::numeric_limits<float>::max() &&
-        f >= std::numeric_limits<float>::min())
+        f >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << std::to_string(f) << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
     if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<double>::min())
+        d >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -115,21 +112,21 @@ static void intIn(const std::string &s) {
   }
   {
     if (i <= std::numeric_limits<int>::max() &&
-        i >= std::numeric_limits<int>::min())
+        i >= std::numeric_limits<int>::lowest())
       std::cout << "int: " << std::to_string(i) << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
     if (i <= std::numeric_limits<float>::max() &&
-        i >= std::numeric_limits<float>::min())
+        i >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << std::to_string(f) << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
     if (i <= std::numeric_limits<double>::max() &&
-        i >= std::numeric_limits<double>::min())
+        i >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -152,21 +149,21 @@ static void floatIn(const std::string &s) {
   }
   {
     if (f <= std::numeric_limits<int>::max() &&
-        f >= std::numeric_limits<int>::min())
+        f >= std::numeric_limits<int>::lowest())
       std::cout << "int: " << std::to_string(i) << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
     if (f <= std::numeric_limits<float>::max() &&
-        f >= std::numeric_limits<float>::min())
+        f >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << std::to_string(f) << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
     if (f <= std::numeric_limits<double>::max() &&
-        f >= std::numeric_limits<double>::min())
+        f >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -189,21 +186,21 @@ static void doubleIn(const std::string &s) {
   }
   {
     if (d <= std::numeric_limits<int>::max() &&
-        d >= std::numeric_limits<int>::min())
+        d >= std::numeric_limits<int>::lowest())
       std::cout << "int: " << std::to_string(i) << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
     if (d <= std::numeric_limits<float>::max() &&
-        d >= std::numeric_limits<float>::min())
+        d >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << std::to_string(f) << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
     if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<double>::min())
+        d >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << std::to_string(d) << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -244,9 +241,11 @@ void ScalarConvert::convert(const std::string &s) {
       floatIn,
       doubleIn,
   };
+
   if (type < 4 && type >= 0) {
     fill[type](s);
     return;
   }
-  std::cout << "Error: pizza! " << type << std::endl;
+
+  std::cout << "Error: Invalid input type!" << std::endl;
 }

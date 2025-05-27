@@ -244,7 +244,6 @@ void ScalarConvert::convert(const std::string &s) {
       floatIn,
       doubleIn,
   };
-  std::cout << "type: " << type << std::endl;
   if (type < 4 && type >= 0) {
     fill[type](s);
     return;

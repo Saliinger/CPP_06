@@ -12,5 +12,6 @@ int main() {
   Base random2 = *random;
   Base::identify(random);
   Base::identify(&random2);
+  delete (random);
   return 0;
 }

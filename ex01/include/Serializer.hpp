@@ -1,12 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <stdint.h>
+#include "Data.hpp"
 
-struct Data {
-  std::string from;
-  std::string to;
-  std::string message;
-};
 
 class Serializer {
  private:

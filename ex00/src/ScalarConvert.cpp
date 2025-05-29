@@ -82,13 +82,13 @@ static void charIn(const std::string &s) {
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<float>::max() && f >= -3.4028235E+38)
+    if (f <= std::numeric_limits<float>::max() && f >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<double>::max() && d >= -1.79769e+308)
+    if (d <= std::numeric_limits<double>::max() && d >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -117,13 +117,13 @@ static void intIn(const std::string &s) {
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<float>::max() && f >= -3.4028235E+38)
+    if (f <= std::numeric_limits<float>::max() && f >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<double>::max() && d >= -1.79769e+308)
+    if (d <= std::numeric_limits<double>::max() && d >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -152,13 +152,13 @@ static void floatIn(const std::string &s) {
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<float>::max() && f >= -3.4028235E+38)
+    if (f <= std::numeric_limits<float>::max() && f >= std::numeric_limits<float>::lowest())
       std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<double>::max() && d >= -1.79769e+308)
+    if (d <= std::numeric_limits<double>::max() && d >= std::numeric_limits<double>::lowest())
       std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;

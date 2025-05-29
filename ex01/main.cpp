@@ -24,6 +24,6 @@ int main() {
             << unserialize->from << "\n"
             << unserialize->to << "\n"
             << unserialize->message << std::endl;
-
+  delete (send);
   return 0;
 }

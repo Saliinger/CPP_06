@@ -67,7 +67,7 @@ static void charIn(const std::string &s) {
   double d = static_cast<double>(c);
 
   {
-    if (std::isprint(c))
+    if (std::isprint(c) && i >= 0 && i < 128)
       std::cout << "char: " << c << std::endl;
     else if (i >= 0 && i < 128)
       std::cout << "char: not printable" << std::endl;
@@ -82,15 +82,13 @@ static void charIn(const std::string &s) {
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (i <= std::numeric_limits<float>::max() &&
-        i >= std::numeric_limits<float>::min())
+    if (f <= std::numeric_limits<float>::max() && f >= -3.4028235E+38)
       std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (i <= std::numeric_limits<double>::max() &&
-        i >= std::numeric_limits<double>::min())
+    if (d <= std::numeric_limits<double>::max() && d >= -1.79769e+308)
       std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -104,7 +102,7 @@ static void intIn(const std::string &s) {
   double d = static_cast<double>(i);
 
   {
-    if (std::isprint(c))
+    if (std::isprint(c) && i >= 0 && i < 128)
       std::cout << "char: " << c << std::endl;
     else if (i >= 0 && i < 128)
       std::cout << "char: not printable" << std::endl;
@@ -119,15 +117,13 @@ static void intIn(const std::string &s) {
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (i <= std::numeric_limits<float>::max() &&
-        i >= std::numeric_limits<float>::min())
+    if (f <= std::numeric_limits<float>::max() && f >= -3.4028235E+38)
       std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (i <= std::numeric_limits<double>::max() &&
-        i >= std::numeric_limits<double>::min())
+    if (d <= std::numeric_limits<double>::max() && d >= -1.79769e+308)
       std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
@@ -141,7 +137,7 @@ static void floatIn(const std::string &s) {
   double d = static_cast<double>(f);
 
   {
-    if (std::isprint(c))
+    if (std::isprint(c) && i >= 0 && i < 128)
       std::cout << "char: " << c << std::endl;
     else if (i >= 0 && i < 128)
       std::cout << "char: not printable" << std::endl;
@@ -156,15 +152,13 @@ static void floatIn(const std::string &s) {
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (i <= std::numeric_limits<float>::max() &&
-        i >= std::numeric_limits<float>::min())
+    if (f <= std::numeric_limits<float>::max() && f >= -3.4028235E+38)
       std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (i <= std::numeric_limits<double>::max() &&
-        i >= std::numeric_limits<double>::min())
+    if (d <= std::numeric_limits<double>::max() && d >= -1.79769e+308)
       std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;

@@ -76,31 +76,29 @@ static void charIn(const std::string &s) {
   }
   {
     if (i <= std::numeric_limits<int>::max() &&
-        i >= std::numeric_limits<int>::lowest())
-      std::cout << "int: " << std::to_string(i) << std::endl;
+        i >= std::numeric_limits<int>::min())
+      std::cout << "int: " << i << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<float>::max() &&
-        f >= std::numeric_limits<float>::lowest())
-      std::cout << "float: " << std::to_string(f) << "f" << std::endl;
+    if (i <= std::numeric_limits<float>::max() &&
+        i >= std::numeric_limits<float>::min())
+      std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<double>::lowest())
-      std::cout << "double: " << std::to_string(d) << std::endl;
+    if (i <= std::numeric_limits<double>::max() &&
+        i >= std::numeric_limits<double>::min())
+      std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
   }
 }
 
 static void intIn(const std::string &s) {
-  std::vector<std::string> res;
-
-  int i = std::stoi(s);  // base
+  int i = std::atoi(s.c_str());  // base
   char c = static_cast<char>(i);
   float f = static_cast<float>(i);
   double d = static_cast<double>(i);
@@ -115,31 +113,29 @@ static void intIn(const std::string &s) {
   }
   {
     if (i <= std::numeric_limits<int>::max() &&
-        i >= std::numeric_limits<int>::lowest())
-      std::cout << "int: " << std::to_string(i) << std::endl;
+        i >= std::numeric_limits<int>::min())
+      std::cout << "int: " << i << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
     if (i <= std::numeric_limits<float>::max() &&
-        i >= std::numeric_limits<float>::lowest())
-      std::cout << "float: " << std::to_string(f) << "f" << std::endl;
+        i >= std::numeric_limits<float>::min())
+      std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
     if (i <= std::numeric_limits<double>::max() &&
-        i >= std::numeric_limits<double>::lowest())
-      std::cout << "double: " << std::to_string(d) << std::endl;
+        i >= std::numeric_limits<double>::min())
+      std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
   }
 }
 
 static void floatIn(const std::string &s) {
-  std::vector<std::string> res;
-
-  float f = std::stof(s);  // base
+  float f = std::atof(s.c_str());  // base
   char c = static_cast<char>(f);
   int i = static_cast<int>(f);
   double d = static_cast<double>(f);
@@ -153,32 +149,30 @@ static void floatIn(const std::string &s) {
       std::cout << "char: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<int>::max() &&
-        f >= std::numeric_limits<int>::lowest())
-      std::cout << "int: " << std::to_string(i) << std::endl;
+    if (i <= std::numeric_limits<int>::max() &&
+        i >= std::numeric_limits<int>::min())
+      std::cout << "int: " << i << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<float>::max() &&
-        f >= std::numeric_limits<float>::lowest())
-      std::cout << "float: " << std::to_string(f) << "f" << std::endl;
+    if (i <= std::numeric_limits<float>::max() &&
+        i >= std::numeric_limits<float>::min())
+      std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (f <= std::numeric_limits<double>::max() &&
-        f >= std::numeric_limits<double>::lowest())
-      std::cout << "double: " << std::to_string(d) << std::endl;
+    if (i <= std::numeric_limits<double>::max() &&
+        i >= std::numeric_limits<double>::min())
+      std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
   }
 }
 
 static void doubleIn(const std::string &s) {
-  std::vector<std::string> res;
-
-  double d = std::stod(s);  // base
+  double d = std::atof(s.c_str());  // base
   char c = static_cast<char>(d);
   int i = static_cast<int>(d);
   float f = static_cast<float>(d);
@@ -192,23 +186,23 @@ static void doubleIn(const std::string &s) {
       std::cout << "char: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<int>::max() &&
-        d >= std::numeric_limits<int>::lowest())
-      std::cout << "int: " << std::to_string(i) << std::endl;
+    if (i <= std::numeric_limits<int>::max() &&
+        i >= std::numeric_limits<int>::min())
+      std::cout << "int: " << i << std::endl;
     else
       std::cout << "int: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<float>::max() &&
-        d >= std::numeric_limits<float>::lowest())
-      std::cout << "float: " << std::to_string(f) << "f" << std::endl;
+    if (i <= std::numeric_limits<float>::max() &&
+        i >= std::numeric_limits<float>::min())
+      std::cout << "float: " << f << "f" << std::endl;
     else
       std::cout << "float: impossible" << std::endl;
   }
   {
-    if (d <= std::numeric_limits<double>::max() &&
-        d >= std::numeric_limits<double>::lowest())
-      std::cout << "double: " << std::to_string(d) << std::endl;
+    if (i <= std::numeric_limits<double>::max() &&
+        i >= std::numeric_limits<double>::min())
+      std::cout << "double: " << d << std::endl;
     else
       std::cout << "double: impossible" << std::endl;
   }
